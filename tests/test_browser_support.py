@@ -6,6 +6,6 @@ def test_browser_type():
         for browser_type in [p.chromium, p.firefox, p.webkit]:
             browser = browser_type.launch()
             page = browser.new_page()
-            page.goto('https://www.whatismybrowser.com/')
-            page.screenshot(path=f'example-{browser_type.name}.png')
+            page.goto('http://www.whatismybrowser.com/')
+            # page.screenshot(path=f'example-{browser_type.name}.png')
             browser.close()

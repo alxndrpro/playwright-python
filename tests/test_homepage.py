@@ -1,17 +1,9 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Page
 
 
-def test_homepage_title():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        page.goto('https://localhost:8000/')
-        browser.close()
+def test_homepage_title(page: Page):
+        page.goto('http://localhost:8000/')
 
 
-def test_homepage_header():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        page.goto('https://localhost:8000/')
-        browser.close()
+def test_homepage_header(page: Page):
+        page.goto('http://localhost:8000/')
