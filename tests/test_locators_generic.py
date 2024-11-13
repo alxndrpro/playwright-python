@@ -1,8 +1,8 @@
-from playwright.sync_api import Page, BrowserType, Expect
+from playwright.sync_api import Page, expect
 
 from tests.utils.constants import BASE_URL
 
-def test_generic_locators(page: Page, expect: Expect):
+def test_generic_locators(page: Page):
     page.goto(BASE_URL)
 
     page.locator('.needs-validation label[for="firstName"]').fill("Tom")

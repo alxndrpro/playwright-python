@@ -1,8 +1,8 @@
-from playwright.sync_api import Page, BrowserType, Expect
+from playwright.sync_api import Page, expect
 
 from tests.utils.constants import BASE_URL
 
-def test_filtering(page: Page, expect: Expect):
+def test_filtering(page: Page):
     page.goto(f'{BASE_URL}savings.html')
 
     rows = page.get_by_role('row')
