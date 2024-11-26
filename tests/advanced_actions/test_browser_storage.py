@@ -29,3 +29,23 @@ def test_local_storage(page: Page):
     print('')
     print(storage['cookies'])
     print(storage['origins'][0]['localStorage'])
+
+
+def test_javascript_and_storage(page: Page):
+    page.goto(BASE_URL)
+
+    name_input = page.get_by_label('First name')
+    name_input.fill(name)
+    page.get_by_role('button', name='Save Input').click()
+
+    print('')
+
+    storage: dict = page.evaluate('() => window.localStorage')
+    print(storage)
+
+    page.evaluate('() => window.localStorage.clear()')
+    expect(name_input).to_have_value('')
+
+    page.evaluate('() => window.localStorage.setItem("firstName", "Alex")')
+    page.reload()
+    expect(name_input).to_have_value('Alex')
