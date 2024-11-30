@@ -1,9 +1,7 @@
-import requests
 from playwright.sync_api import Page, expect
-from venv.bin import pytest
+import pytest, requests
 
 from tests.utils.constants import BASE_URL
-
 
 @pytest.fixture(scope='module')
 def once_per_module(page: Page):

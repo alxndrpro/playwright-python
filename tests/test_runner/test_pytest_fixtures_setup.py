@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-from venv.bin import pytest
+import pytest
 
 from tests.utils.constants import BASE_URL
 
